@@ -1,5 +1,7 @@
 import numpy as np
 import pandas as pd
+
+
 def fetch_medal_tally(df, year, country):
     medal_df = df.drop_duplicates(subset=['Team', 'NOC', 'Games',
         'Year', 'City', 'Sport', 'Event', 'Medal'])
@@ -104,3 +106,13 @@ def most_successful_countrywise(df, country):
     result = result[['Name', 'Medals', 'Sport']].drop_duplicates('Name')
 
     return result
+
+def weight_v_height(df,sport):
+    athlete_df = df.drop_duplicates(subset=['Name', 'region'])
+    athlete_df.fillna({'Medal':"No Medal"},inplace = True)
+    if sport != 'Overall':
+        temp_df = athlete_df[athlete_df['Sport']== sport]
+        return temp_df
+    else:
+        return athlete_df
+    
