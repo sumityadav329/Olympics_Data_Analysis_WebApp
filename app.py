@@ -175,3 +175,9 @@ if user_menu == 'Athletes wise Analysis':
     fig,ax = plt.subplots()
     ax = sns.scatterplot(x='Weight', y='Height', data=temp_df, hue = temp_df ['Medal'],style = temp_df['Sex'], s= 50)
     st.pyplot(fig)    
+
+    st.title("Men Vs Women Participation Over the Years")
+    final = helper.men_vs_women(df)
+    fig = px.line(final, x="Year", y=["Male", "Female"])
+    fig.update_layout(autosize=False, width=1000, height=600)
+    st.plotly_chart(fig)
