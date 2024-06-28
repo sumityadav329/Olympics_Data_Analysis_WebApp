@@ -7,7 +7,7 @@ on:
 env:
   PROJECT_ID: silicon-synapse-420012 # TODO: update Google Cloud project id
   GAR_LOCATION: us-central1 # TODO: update Artifact Registry location
-  GAR_NAME: gha-app
+  GAR_NAME: cloud-run-source-deploy
   SERVICE: olympics-analysis-app # TODO: update Cloud Run service name
   REGION: us-central1 # TODO: update Cloud Run service region
 
