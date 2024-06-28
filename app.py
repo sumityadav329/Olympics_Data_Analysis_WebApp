@@ -1,14 +1,40 @@
 import streamlit as st
+import os
 import pandas as pd
 import preprocessor,helper
 import plotly.express as px
 import matplotlib.pyplot as plt
 import seaborn as sns
 import plotly.figure_factory as ff
+from data_loader import download_and_extract_zip
 
+# Define file paths
+data_dir = 'data'
+athlete_events_file = os.path.join(data_dir, 'athlete_events.csv')
+noc_regions_file = os.path.join(data_dir, 'noc_regions.csv')
 
-df = pd.read_csv('data\\athlete_events.csv')
-region_df = pd.read_csv('data\\noc_regions.csv')
+# Check if the data directory exists and contains the expected files
+if not os.path.exists(data_dir) or not os.listdir(data_dir):
+    # Download and extract the ZIP file if the directory is empty
+    file_id = '1N_Lp0vhC77RX6SRHIz8q_EPq3uvvdkYQ'
+    file_name = 'data.zip'
+    download_and_extract_zip(file_id, file_name, data_dir=data_dir)
+    # Mark the download as completed to avoid repeated downloads
+    with open(os.path.join(data_dir, '.downloaded'), 'w') as f:
+        f.write('downloaded')
+
+# Check if the download has already been completed
+if not os.path.exists(os.path.join(data_dir, '.downloaded')):
+    st.warning("Downloading data...")
+    st.stop()
+
+# Read CSV files
+try:
+    df = pd.read_csv(athlete_events_file, encoding='utf-8')
+    region_df = pd.read_csv(noc_regions_file, encoding='utf-8')
+except Exception as e:
+    st.error(f"Error loading CSV files: {e}")
+    st.stop()
 
 
 df = preprocessor.preprocess(df, region_df)
