@@ -9,3 +9,8 @@ https://www.kaggle.com/datasets/heesoo37/120-years-of-olympic-history-athletes-a
 ```bash
 https://olympics-analysis-app-adv2u6f3sq-uc.a.run.app/
 ```
+
+# app deployed on Render 
+```bash
+https://olympics-data-analysis-webapp.onrender.com/
+```
