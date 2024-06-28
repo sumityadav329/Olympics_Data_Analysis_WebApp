@@ -3,6 +3,9 @@ name: Build and Deploy to Cloud Run
 on:
   push:
     branches: [ "main" ]
+    paths-ignore:
+      - '**/README.md'
+      - '**/*.txt'
 
 env:
   PROJECT_ID: silicon-synapse-420012 # TODO: update Google Cloud project id
