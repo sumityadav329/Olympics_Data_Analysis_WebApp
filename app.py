@@ -14,6 +14,7 @@ region_df = pd.read_csv('data\\noc_regions.csv')
 df = preprocessor.preprocess(df, region_df)
 
 st.sidebar.title("Olympics Analysis")
+st.sidebar.image('https://cdn.britannica.com/01/23901-050-33507FA4/flag-Olympic-Games.jpg')
 
 user_menu = st.sidebar.radio(
     "Select an Option",
