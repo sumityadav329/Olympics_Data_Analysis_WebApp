@@ -14,3 +14,5 @@ https://olympics-analysis-app-adv2u6f3sq-uc.a.run.app/
 ```bash
 https://olympics-data-analysis-webapp.onrender.com/
 ```
+# app-demo as gif
+![GIFMaker_me](https://github.com/sumityadav329/Olympics_Data_Analysis_WebApp/assets/135656058/bbfe061a-c70e-4fcc-83bc-c68822d62d2e)
